@@ -1,0 +1,20 @@
+  /* errores
+    Los errores se muestran como un objeto.
+    422
+
+    errores id no existe
+
+            404.
+
+    crear incrementación manual de ID.
+*/
+
+
+Para crear las putas tablas, tengo que tener en CREATE la puta mierda esa, y no en UPDATE. PARA CREARLA EN UPDATE, tengo que tener mis tablas definidas y luego
+
+
+
+necesito pasar el objeto persona a DTO, que no sé que poya és, buscar información para ver su uso.
+
+Controller, meter todos los controller en uno.
+
