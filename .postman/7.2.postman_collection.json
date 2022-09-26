@@ -1,0 +1,148 @@
+{
+	"info": {
+		"_postman_id": "4ac20ada-7219-4201-a027-5267fec3048b",
+		"name": "7.2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22850433"
+	},
+	"item": [
+		{
+			"name": "Persona",
+			"item": [
+				{
+					"name": "Add User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"usuario\": \"Juan pablo\",\r\n\r\n    \"password\": \"password\",\r\n\r\n    \"name\": \"Marcos\",\r\n\r\n    \"supername\": \"Marcos\",\r\n\r\n    \"company_Email\": \"Marcos.corona@bosonit.com\",\r\n\r\n    \"city\": \"Toledo\",\r\n\r\n    \"active\": true,\r\n\r\n    \"created_date\": \"2022-06-14\",\r\n\r\n    \"imagen_url\": \"image.png\",\r\n\r\n    \"termination_date\": \"2050-06-14\"\r\n\r\n\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/addPersona",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"addPersona"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete By ID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/delete 6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"delete 6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show complete list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/searchAll",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"searchAll"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search by Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/SearchById 4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"SearchById 4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search by Usuario",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Username/Marcos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Username",
+								"Marcos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n        \"usuario\": \"MarcosModificado\",\r\n        \"password\": \"password\",\r\n        \"name\": \"Marcos\",\r\n        \"supername\": \"Marcos\",\r\n        \"company_Email\": null,\r\n        \"city\": \"Toledo\",\r\n        \"active\": true,\r\n        \"created_date\": \"2022-06-14\",\r\n        \"imagen_url\": null,\r\n        \"termination_date\": \"2050-06-14\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/update 4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"update 4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
