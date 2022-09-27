@@ -7,7 +7,7 @@ import java.sql.Date;
 
 @Data
 public class OutputPErsonaDTO {
-    //  private int person_id;
+    private Integer id;
     private String usuario;
     private String name;
     private String supername;
@@ -19,7 +19,7 @@ public class OutputPErsonaDTO {
     private Date termination_date;
 
     public OutputPErsonaDTO(Persona persona) {
-        //  this.person_id = persona.getId();
+        this.id = persona.getId();
         this.usuario = persona.getUsuario();
         this.name = persona.getName();
         this.supername = persona.getSupername();

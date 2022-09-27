@@ -12,7 +12,7 @@ public class DeleteByIdController {
     @Autowired
     PersonServiceImp ex;
 
-    @DeleteMapping("/delete{id}")
+    @DeleteMapping("/delete/{id}")
     public String deleteByIdPersona(@PathVariable("id") Integer id) {
         ex.deleteByIdPersona(id);
         return "persona... borrada?";

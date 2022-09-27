@@ -1,12 +1,16 @@
 package com.example.bosonit72.Persona.infraestructure.controler.service;
 
+import com.example.bosonit72.Persona.domain.CustomError;
 import com.example.bosonit72.Persona.domain.Persona;
+import com.example.bosonit72.Persona.infraestructure.controler.Exception.EntityNotFoundException;
+import com.example.bosonit72.Persona.infraestructure.controler.Exception.UnprocessableEntityException;
 import com.example.bosonit72.Persona.infraestructure.controler.InputPersonaDto.InputPerdonaDTO;
 import com.example.bosonit72.Persona.infraestructure.controler.OutPutPersonaDto.OutputPErsonaDTO;
 import com.example.bosonit72.Persona.infraestructure.controler.service.repository.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -23,7 +27,7 @@ public class PersonServiceImp {
     public OutputPErsonaDTO addPersona(InputPerdonaDTO persona) throws Exception {
         Persona p1 = persona.turnInputToPersona();
         if ((p1.getUsuario() == null) || (p1.getUsuario().length() > 10)) {
-            throw new Exception("El usuario no puede ser nulo ni ser mayor de 10 caracteres. Somos pobres y no podemos permitirnos un usuario de 11 caracteres.");
+            throw new UnprocessableEntityException("Username vacío o superior a 10 caracteres", 422);
         } else {
             personRepository.save(p1);
         }
@@ -34,9 +38,6 @@ public class PersonServiceImp {
         personRepository.deleteById(id);
     }
 
-    public List<Persona> listPeople() {
-        return personRepository.findAll();
-    }
 
     public OutputPErsonaDTO updatePersona(Integer id, Persona persona) {
         Optional<Persona> updatePer = personRepository.findById(id);
@@ -56,18 +57,17 @@ public class PersonServiceImp {
         return new OutputPErsonaDTO(p1);
     }
 
-    public OutputPErsonaDTO findByIdPerosna(Integer id) {
-        Optional<Persona> p1 = personRepository.findById(id);
-        Persona newPeople = p1.get();
-        return new OutputPErsonaDTO(newPeople);
-
+    public OutputPErsonaDTO findByIdPerosna(Integer id) throws Exception {
+        Optional<Persona> personaOptional = personRepository.findById(id);
+        if (personaOptional.isEmpty()) {
+            throw new EntityNotFoundException("mensaje de prueba", 404);
+        }
+        return new OutputPErsonaDTO(personRepository.findPersonaById(id));
     }
 
     public List<OutputPErsonaDTO> getUsername(String usuario) {
         List<Persona> persona = personRepository.findByUsuario(usuario);
         return persona.stream().map(persona1 -> new OutputPErsonaDTO(persona1)).collect(Collectors.toList());
     }
-
-
 }
 
