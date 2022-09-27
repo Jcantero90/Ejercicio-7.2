@@ -67,7 +67,7 @@ public class PersonServiceImp {
 
     public List<OutputPErsonaDTO> getUsername(String usuario) {
         List<Persona> persona = personRepository.findByUsuario(usuario);
-        return persona.stream().map(persona1 -> new OutputPErsonaDTO(persona1)).collect(Collectors.toList());
+        return persona.stream().map(OutputPErsonaDTO::new).collect(Collectors.toList());
     }
 }
 

@@ -9,4 +9,5 @@ import java.util.List;
 @Repository
 public interface PersonRepository extends JpaRepository<Persona, Integer> {
     List<Persona> findByUsuario(String usuario);
+    Persona findPersonaById(Integer id);
 }
