@@ -40,5 +40,7 @@ public class OutPutStudentsDto {
             setComments(student.getComments());
             setBranch(student.getBranch());
         }
+
+        public OutPutStudentsNotFullDto(){}
     }
 }

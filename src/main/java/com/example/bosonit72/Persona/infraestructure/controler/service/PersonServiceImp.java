@@ -4,7 +4,10 @@ import com.example.bosonit72.Persona.domain.Persona;
 import com.example.bosonit72.Exception.EntityNotFoundException;
 import com.example.bosonit72.Exception.UnprocessableEntityException;
 import com.example.bosonit72.Persona.infraestructure.controler.InputPersonaDto.InputPersonaDTO;
+import com.example.bosonit72.Persona.infraestructure.controler.OutPutPersonaDto.OutPutPersonaFatherDto;
 import com.example.bosonit72.Persona.infraestructure.controler.OutPutPersonaDto.OutputPersonaDTO;
+import com.example.bosonit72.Persona.infraestructure.controler.OutPutPersonaDto.OutputPersonaStudent;
+import com.example.bosonit72.Persona.infraestructure.controler.OutPutPersonaDto.OutputPersonaTeacher;
 import com.example.bosonit72.Persona.infraestructure.controler.service.repository.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -64,11 +67,27 @@ public class PersonServiceImp implements PersonService {
         return persona.stream().map(OutputPersonaDTO::new).collect(Collectors.toList());
     }
 
-    public Persona findById(Integer id){
+    public Persona findById(Integer id) {
         Optional<Persona> persona = personRepository.findById(id);
         Persona person = persona.get();
         return person;
     }
 
-}
+    public OutPutPersonaFatherDto findByIdFather(Integer id, String type) throws EntityNotFoundException {
+        Optional<Persona> personaDto = personRepository.findById(id);
+        Persona persona = personaDto.get();
 
+        if(persona==null) {
+            throw new EntityNotFoundException("El usuario no ha sido encontrado");
+        }
+
+        if (type.equals("full")) {
+            if (persona.getStudent() != null) {
+                return new OutputPersonaStudent(persona);
+            } else if (persona.getTeacher() != null) {
+                return new OutputPersonaTeacher(persona);
+            }
+        }
+        return new OutputPersonaDTO(persona);
+    }
+}

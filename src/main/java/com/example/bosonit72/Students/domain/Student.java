@@ -26,7 +26,7 @@ public class Student implements Serializable {
 
     private String comments;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name="id_profesor")
     private Teacher profesor;
 

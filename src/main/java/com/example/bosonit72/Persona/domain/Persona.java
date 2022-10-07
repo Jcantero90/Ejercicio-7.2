@@ -36,8 +36,6 @@ public class Persona implements Serializable {
     private String imagen_url;
     private Date termination_date;
 
-
-
     @JsonIgnore
     @OneToOne(mappedBy = "persona", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Student student;
