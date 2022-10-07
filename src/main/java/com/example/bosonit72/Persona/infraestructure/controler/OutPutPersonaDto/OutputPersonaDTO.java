@@ -4,11 +4,10 @@ import com.example.bosonit72.Persona.domain.Persona;
 import lombok.Data;
 
 import java.sql.Date;
-import java.util.Optional;
 
 @Data
-public class OutputPErsonaDTO {
-    private Integer id;
+public class OutputPersonaDTO {
+    private Integer id_persona;
     private String usuario;
     private String name;
     private String supername;
@@ -19,8 +18,8 @@ public class OutputPErsonaDTO {
     private String imagen_url;
     private Date termination_date;
 
-    public OutputPErsonaDTO(Persona persona) {
-        this.id = persona.getId();
+    public OutputPersonaDTO(Persona persona) {
+        this.id_persona = persona.getId_persona();
         this.usuario = persona.getUsuario();
         this.name = persona.getName();
         this.supername = persona.getSupername();

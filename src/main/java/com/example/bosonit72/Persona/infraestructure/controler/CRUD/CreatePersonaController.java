@@ -1,8 +1,8 @@
 package com.example.bosonit72.Persona.infraestructure.controler.CRUD;
 
 
-import com.example.bosonit72.Persona.infraestructure.controler.InputPersonaDto.InputPerdonaDTO;
-import com.example.bosonit72.Persona.infraestructure.controler.OutPutPersonaDto.OutputPErsonaDTO;
+import com.example.bosonit72.Persona.infraestructure.controler.InputPersonaDto.InputPersonaDTO;
+import com.example.bosonit72.Persona.infraestructure.controler.OutPutPersonaDto.OutputPersonaDTO;
 import com.example.bosonit72.Persona.infraestructure.controler.service.PersonServiceImp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,10 +13,10 @@ import org.springframework.web.bind.annotation.RestController;
 public class CreatePersonaController {
 
     @Autowired
-    PersonServiceImp executable;
+    PersonServiceImp ex;
 
     @PostMapping("/addPersona")
-    public OutputPErsonaDTO addPersona(@RequestBody InputPerdonaDTO personaDatos) throws Exception {
-        return executable.addPersona(personaDatos);
+    public OutputPersonaDTO addPersona(@RequestBody InputPersonaDTO personaDatos) throws Exception {
+        return ex.addPersona(personaDatos);
     }
 }

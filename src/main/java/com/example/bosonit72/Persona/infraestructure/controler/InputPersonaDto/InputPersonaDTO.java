@@ -6,8 +6,8 @@ import lombok.Data;
 import java.sql.Date;
 
 @Data
-public class InputPerdonaDTO {
-    private Integer id;
+public class InputPersonaDTO {
+    private Integer id_persona;
 
     private String usuario;
     private String password;
@@ -23,7 +23,7 @@ public class InputPerdonaDTO {
 
     public Persona turnInputToPersona() {
         Persona p1 = new Persona();
-        p1.setId(this.id);
+        p1.setId_persona(this.id_persona);
         p1.setUsuario(this.usuario);
         p1.setPassword(this.password);
         p1.setName(this.name);

@@ -13,8 +13,8 @@ public class DeleteByIdController {
     PersonServiceImp ex;
 
     @DeleteMapping("/delete/{id}")
-    public String deleteByIdPersona(@PathVariable("id") Integer id) {
-        ex.deleteByIdPersona(id);
+    public String deleteByIdPersona(@PathVariable("id") Integer id_persona) {
+        ex.deleteByIdPersona(id_persona);
         return "persona... borrada?";
     }
 }

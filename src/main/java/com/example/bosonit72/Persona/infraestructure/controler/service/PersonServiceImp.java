@@ -1,22 +1,20 @@
 package com.example.bosonit72.Persona.infraestructure.controler.service;
 
-import com.example.bosonit72.Persona.domain.CustomError;
 import com.example.bosonit72.Persona.domain.Persona;
-import com.example.bosonit72.Persona.infraestructure.controler.Exception.EntityNotFoundException;
-import com.example.bosonit72.Persona.infraestructure.controler.Exception.UnprocessableEntityException;
-import com.example.bosonit72.Persona.infraestructure.controler.InputPersonaDto.InputPerdonaDTO;
-import com.example.bosonit72.Persona.infraestructure.controler.OutPutPersonaDto.OutputPErsonaDTO;
+import com.example.bosonit72.Exception.EntityNotFoundException;
+import com.example.bosonit72.Exception.UnprocessableEntityException;
+import com.example.bosonit72.Persona.infraestructure.controler.InputPersonaDto.InputPersonaDTO;
+import com.example.bosonit72.Persona.infraestructure.controler.OutPutPersonaDto.OutputPersonaDTO;
 import com.example.bosonit72.Persona.infraestructure.controler.service.repository.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
-public class PersonServiceImp {
+public class PersonServiceImp implements PersonService {
     @Autowired
     PersonRepository personRepository;
 
@@ -24,22 +22,21 @@ public class PersonServiceImp {
         return personRepository.findAll();
     }
 
-    public OutputPErsonaDTO addPersona(InputPerdonaDTO persona) throws Exception {
+    public OutputPersonaDTO addPersona(InputPersonaDTO persona) throws Exception {
         Persona p1 = persona.turnInputToPersona();
         if ((p1.getUsuario() == null) || (p1.getUsuario().length() > 10)) {
-            throw new UnprocessableEntityException("Username vacío o superior a 10 caracteres", 422);
+            throw new UnprocessableEntityException("Username vacío o superior a 10 caracteres");
         } else {
             personRepository.save(p1);
         }
-        return new OutputPErsonaDTO(p1);
+        return new OutputPersonaDTO(p1);
     }
 
     public void deleteByIdPersona(Integer id) {
         personRepository.deleteById(id);
     }
 
-
-    public OutputPErsonaDTO updatePersona(Integer id, Persona persona) {
+    public OutputPersonaDTO updatePersona(Integer id, Persona persona) {
         Optional<Persona> updatePer = personRepository.findById(id);
         Persona p1 = updatePer.get();
         p1.setUsuario(persona.getUsuario());
@@ -54,20 +51,24 @@ public class PersonServiceImp {
         p1.setTermination_date(persona.getTermination_date());
         System.out.println(p1);
         personRepository.save(p1);
-        return new OutputPErsonaDTO(p1);
+        return new OutputPersonaDTO(p1);
     }
 
-    public OutputPErsonaDTO findByIdPerosna(Integer id) throws Exception {
-        Optional<Persona> personaOptional = personRepository.findById(id);
-        if (personaOptional.isEmpty()) {
-            throw new EntityNotFoundException("mensaje de prueba", 404);
-        }
-        return new OutputPErsonaDTO(personRepository.findPersonaById(id));
+    public OutputPersonaDTO findByIdPersona(Integer id_persona) throws EntityNotFoundException {
+        Persona p1 = personRepository.findById(id_persona).orElseThrow(() -> new EntityNotFoundException("No username found with id: " + id_persona));
+        return new OutputPersonaDTO(p1);
     }
 
-    public List<OutputPErsonaDTO> getUsername(String usuario) {
+    public List<OutputPersonaDTO> getUsername(String usuario) {
         List<Persona> persona = personRepository.findByUsuario(usuario);
-        return persona.stream().map(OutputPErsonaDTO::new).collect(Collectors.toList());
+        return persona.stream().map(OutputPersonaDTO::new).collect(Collectors.toList());
     }
+
+    public Persona findById(Integer id){
+        Optional<Persona> persona = personRepository.findById(id);
+        Persona person = persona.get();
+        return person;
+    }
+
 }
 

@@ -1,6 +1,11 @@
 package com.example.bosonit72.Persona.domain;
 
+import com.example.bosonit72.Profesor.domain.Teacher;
+import com.example.bosonit72.Students.domain.Student;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -15,8 +20,8 @@ public class Persona implements Serializable {
     }
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id_persona;
 
     @Column(nullable = false)
     private String usuario;
@@ -31,7 +36,19 @@ public class Persona implements Serializable {
     private String imagen_url;
     private Date termination_date;
 
+
+
+    @JsonIgnore
+    @OneToOne(mappedBy = "persona", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private Student student;
+
+    @JsonIgnore
+    @OneToOne(mappedBy = "persona", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private Teacher teacher;
+
+
     public boolean getActive() {
         return true;
     }
+
 }

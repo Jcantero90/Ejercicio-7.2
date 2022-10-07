@@ -1,6 +1,6 @@
 package com.example.bosonit72.Persona.infraestructure.controler.CRUD;
 
-import com.example.bosonit72.Persona.infraestructure.controler.OutPutPersonaDto.OutputPErsonaDTO;
+import com.example.bosonit72.Persona.infraestructure.controler.OutPutPersonaDto.OutputPersonaDTO;
 import com.example.bosonit72.Persona.infraestructure.controler.service.PersonServiceImp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,7 +15,7 @@ public class ReadPersonByUsernameController {
     PersonServiceImp ex;
 
     @GetMapping("/Username/{usuario}")
-    public List<OutputPErsonaDTO> getListFiltred(@PathVariable("usuario") String usuario) {
+    public List<OutputPersonaDTO> getListFiltred(@PathVariable("usuario") String usuario) {
         return ex.getUsername(usuario);
     }
 
