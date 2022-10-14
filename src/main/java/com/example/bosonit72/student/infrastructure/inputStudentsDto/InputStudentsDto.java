@@ -1,33 +1,20 @@
 package com.example.bosonit72.student.infrastructure.inputStudentsDto;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class InputStudentsDto {
 
     private Integer id_persona;
-
     private Integer id_student;
     private Integer num_hours_week;
-
-  //  private OutputPersonaDTO persona;
     private String comments;
-
     private String branch;
-/*
-    public Student TransformInputToStudent (Student student){
-        Student student = new Student();
 
-        student.setPersona(persona);
-        student.setNum_hours_week(this.num_hours_week);
-        student.setComments(this.comments);
-        student.setBranch(this.branch);
-        student.setProfesor(teacher);
-        return student;
-
-
-    }
- */
 
 
 

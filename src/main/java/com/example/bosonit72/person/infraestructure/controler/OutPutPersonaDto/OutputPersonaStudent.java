@@ -2,11 +2,14 @@ package com.example.bosonit72.person.infraestructure.controler.OutPutPersonaDto;
 
 import com.example.bosonit72.person.domain.Persona;
 import com.example.bosonit72.student.infrastructure.outputStudentsDto.OutPutStudentsDto;
+import lombok.AllArgsConstructor;
 import lombok.Data;
-
+import lombok.NoArgsConstructor;
 import java.sql.Date;
 
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class OutputPersonaStudent extends OutPutPersonaFatherDto {
 
     private Integer id_persona;

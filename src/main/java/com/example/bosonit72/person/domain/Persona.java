@@ -1,11 +1,9 @@
 package com.example.bosonit72.person.domain;
 
-import com.example.bosonit72.subject.domain.Estudiante_Asignatura;
 import com.example.bosonit72.teacher.domain.Teacher;
 import com.example.bosonit72.student.domain.Student;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
-
 import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Date;
@@ -16,8 +14,6 @@ import java.sql.Date;
 @NoArgsConstructor
 @Table(name = "Persona")
 public class Persona implements Serializable {
-
-
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

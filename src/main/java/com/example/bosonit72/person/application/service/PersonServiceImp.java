@@ -1,5 +1,6 @@
 package com.example.bosonit72.person.application.service;
 
+import com.example.bosonit72.feingClients.Feing;
 import com.example.bosonit72.person.infraestructure.controler.repository.PersonRepository;
 import com.example.bosonit72.person.domain.Persona;
 import com.example.bosonit72.exception.EntityNotFoundException;
@@ -9,9 +10,9 @@ import com.example.bosonit72.person.infraestructure.controler.OutPutPersonaDto.O
 import com.example.bosonit72.person.infraestructure.controler.OutPutPersonaDto.OutputPersonaDTO;
 import com.example.bosonit72.person.infraestructure.controler.OutPutPersonaDto.OutputPersonaStudent;
 import com.example.bosonit72.person.infraestructure.controler.OutPutPersonaDto.OutputPersonaTeacher;
+import com.example.bosonit72.teacher.infrastructure.OutPutProfesorDto.OutPutProfesorDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -21,6 +22,12 @@ public class PersonServiceImp implements PersonService {
     @Autowired
     PersonRepository personRepository;
 
+
+    //Feign implemented in Autowired.
+    @Autowired
+    Feing feing;
+
+    //Test method. Not used.
     public List<Persona> getAllPersonas() {
         return personRepository.findAll();
     }
@@ -89,4 +96,10 @@ public class PersonServiceImp implements PersonService {
         }
         return new OutputPersonaDTO(persona);
     }
+
+    //Feign method. We can find Teacher by ID.
+    public OutPutProfesorDto getFeing (Integer id){
+        return feing.findTeacherFeing(id);
+    }
+
 }

@@ -24,9 +24,6 @@ public class Teacher implements Serializable {
     @JoinColumn(name="id_persona")
     Persona persona;
 
-//    @OneToMany (mappedBy = "teacher", fetch = FetchType.EAGER)
-//    private Student student;
-
     private String comments;
 
     @Column(nullable = false)

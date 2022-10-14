@@ -1,10 +1,8 @@
 package com.example.bosonit72.student.domain;
 
 import com.example.bosonit72.person.domain.Persona;
-import com.example.bosonit72.subject.domain.Estudiante_Asignatura;
 import com.example.bosonit72.teacher.domain.Teacher;
 import com.example.bosonit72.student.infrastructure.inputStudentsDto.InputStudentsDto;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -35,14 +33,6 @@ public class Student implements Serializable {
     @ManyToOne
     @JoinColumn(name="id_profesor")
     private Teacher profesor;
-
-//      @OneToMany
-//      @JoinColumn(name="id_study")
-//      private Estudiante_Asignatura subject;
-
-//    @JsonIgnore
-//    @ManyToMany(mappedBy = "student", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-//    private Estudiante_Asignatura estudiante_asignatura;
 
     @Column(nullable = false)
     private String branch;// Rama principal delestudiante (Front, Back, FullStack)

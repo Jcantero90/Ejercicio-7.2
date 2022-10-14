@@ -2,11 +2,15 @@ package com.example.bosonit72.subject.infrastructure.OutPutEStudianteAsignaturaD
 
 import com.example.bosonit72.subject.domain.Estudiante_Asignatura;
 import com.example.bosonit72.student.infrastructure.outputStudentsDto.OutPutStudentsDto;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.Date;
 
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class OutPutEstudianteAsignaturaDto extends OutPutEstudiantesAsignaturaDtoPadre{
 
     private OutPutStudentsDto outPutStudentsDto;

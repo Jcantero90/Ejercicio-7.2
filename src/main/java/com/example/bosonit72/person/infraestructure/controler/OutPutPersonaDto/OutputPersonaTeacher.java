@@ -1,12 +1,15 @@
 package com.example.bosonit72.person.infraestructure.controler.OutPutPersonaDto;
 
 import com.example.bosonit72.person.domain.Persona;
-import com.example.bosonit72.teacher.infrastructure.OutPutProfesorDto.OutPutProfesorDto;
+import com.example.bosonit72.teacher.infrastructure.OutPutProfesorDto.OutputProfesorNotFull;
+import lombok.AllArgsConstructor;
 import lombok.Data;
-
+import lombok.NoArgsConstructor;
 import java.sql.Date;
 
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class OutputPersonaTeacher extends OutPutPersonaFatherDto {
 
     private Integer id_persona;
@@ -19,7 +22,7 @@ public class OutputPersonaTeacher extends OutPutPersonaFatherDto {
     private Date created_date;
     private String imagen_url;
     private Date termination_date;
-    private OutPutProfesorDto.OutputProfesorNotFull profesorNotFull;
+    private OutputProfesorNotFull profesorNotFull;
 
     public OutputPersonaTeacher(Persona persona){
         this.id_persona = persona.getId_persona();
@@ -32,6 +35,6 @@ public class OutputPersonaTeacher extends OutPutPersonaFatherDto {
         this.created_date = persona.getCreated_date();
         this.imagen_url = persona.getImagen_url();
         this.termination_date = persona.getTermination_date();
-        this.profesorNotFull = new OutPutProfesorDto.OutputProfesorNotFull(persona.getTeacher());
+        this.profesorNotFull = new OutputProfesorNotFull(persona.getTeacher());
     }
 }

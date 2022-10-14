@@ -1,7 +1,6 @@
 package com.example.bosonit72.subject.infrastructure.CRUD;
 
 import com.example.bosonit72.subject.infrastructure.InputEstudianteAsignaturaDto.InputEstudianteAsignaturaDto;
-import com.example.bosonit72.subject.infrastructure.OutPutEStudianteAsignaturaDto.OutPutEstudianteAsignaturaDto;
 import com.example.bosonit72.subject.infrastructure.OutPutEStudianteAsignaturaDto.OutPutEstudiantesAsignaturaDtoPadre;
 import com.example.bosonit72.subject.infrastructure.service.EstudianteAsignaturaServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;

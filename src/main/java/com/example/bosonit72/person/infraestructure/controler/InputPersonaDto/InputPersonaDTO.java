@@ -1,11 +1,14 @@
 package com.example.bosonit72.person.infraestructure.controler.InputPersonaDto;
 
 import com.example.bosonit72.person.domain.Persona;
+import lombok.AllArgsConstructor;
 import lombok.Data;
-
+import lombok.NoArgsConstructor;
 import java.sql.Date;
 
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class InputPersonaDTO {
     private Integer id_persona;
 
@@ -19,7 +22,6 @@ public class InputPersonaDTO {
     private Date created_date;
     private String imagen_url;
     private Date termination_date;
-
 
     public Persona turnInputToPersona() {
         Persona p1 = new Persona();

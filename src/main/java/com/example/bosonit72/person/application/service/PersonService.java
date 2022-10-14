@@ -3,7 +3,6 @@ package com.example.bosonit72.person.application.service;
 import com.example.bosonit72.person.domain.Persona;
 import com.example.bosonit72.person.infraestructure.controler.InputPersonaDto.InputPersonaDTO;
 import com.example.bosonit72.person.infraestructure.controler.OutPutPersonaDto.OutputPersonaDTO;
-
 import java.util.List;
 
 public interface PersonService {

@@ -3,16 +3,12 @@ package com.example.bosonit72.subject.domain;
 
 import com.example.bosonit72.subject.infrastructure.InputEstudianteAsignaturaDto.InputEstudianteAsignaturaDto;
 import com.example.bosonit72.student.domain.Student;
-import com.example.bosonit72.student.infrastructure.repository.StudentRepository;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
-
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
-import java.util.Optional;
 
 @Data
 @Entity
@@ -26,11 +22,6 @@ public class Estudiante_Asignatura implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     Integer id_study;
 
-/*
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_profesor")
-    Teacher profesor;
- */
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id")
     Student student;

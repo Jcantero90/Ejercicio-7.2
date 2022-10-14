@@ -12,6 +12,6 @@ public interface StudentService {
     OutPutStudentsDto getStudent (Integer id);
 
     public OutPutStudentsDto.OutPutStudentsNotFullDto getNotFullStudent(Integer id);
-    void deleteStudent(Integer id); //Delete
+    void deleteStudent(Integer id);
 
 }

@@ -9,7 +9,4 @@ public interface StudentRepository extends JpaRepository<Student, Integer> {
 
     Student findStudentById(Integer id);
 
-  // Optional<Student> findByPerson(Persona persona);
-
-
 }

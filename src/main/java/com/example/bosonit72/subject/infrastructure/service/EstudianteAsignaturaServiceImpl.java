@@ -1,6 +1,5 @@
 package com.example.bosonit72.subject.infrastructure.service;
 
-import com.example.bosonit72.person.infraestructure.controler.repository.PersonRepository;
 import com.example.bosonit72.student.infrastructure.repository.StudentRepository;
 import com.example.bosonit72.subject.domain.Estudiante_Asignatura;
 import com.example.bosonit72.subject.infrastructure.InputEstudianteAsignaturaDto.InputEstudianteAsignaturaDto;
@@ -10,7 +9,6 @@ import com.example.bosonit72.subject.infrastructure.repository.EstudianteAsignat
 import com.example.bosonit72.exception.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 import java.util.Optional;
 
@@ -23,8 +21,6 @@ public class EstudianteAsignaturaServiceImpl implements EstudianteAsignaturaServ
     @Autowired
     StudentRepository studentRepository;
 
-    @Autowired
-    PersonRepository personRepository;
 
    public OutPutEstudianteAsignaturaDto addStudent (InputEstudianteAsignaturaDto estudianteAsignaturaDto){
 
